@@ -11,11 +11,11 @@ jobs:
     steps:
       - name: Check if employee
         id: check_employee
-        uses: .github/actions/check-employee
+        uses: ./.github/actions/check-employee
 
       - name: Close PR
         id: close_pr
-        uses: .github/actions/close-pr
+        uses: ./.github/actions/close-pr
         if: ${{ steps.check_employee.outputs.employee == 'false' }}
       
       - name: Leave PR open
