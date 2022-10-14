@@ -1,0 +1,24 @@
+name: Auto Close PRs
+
+on:
+  pull_request:
+    types: [opened, reopened]
+
+jobs:
+  check_pr:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check if employee
+        id: check_employee
+        uses: .github/actions/check-employee
+
+      - name: Close PR
+        id: close_pr
+        uses: .github/actions/close-pr
+        if: ${{ steps.check_employee.outputs.employee == 'false' }}
+      
+      - name: Leave PR open
+        id: leave_pr
+        if: ${{ steps.check_employee.outputs.employee == 'true' }}
+        run: echo "PR is from an employee, leaving it open"
