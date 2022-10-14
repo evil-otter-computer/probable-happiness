@@ -6,9 +6,13 @@ const context = github.context;
 
 const client = new github.GitHub(token);
 
-const isEmployee = await client.orgs.checkMembershipForUser({
-  org: "github",
-  username: context.payload.pull_request.user.login,
-});
+async function checkEmployee() {
+  return await client.orgs.checkMembershipForUser({
+    org: "github",
+    username: context.payload.pull_request.user.login,
+  });
+}
+
+const isEmployee = checkEmployee();
 
 core.setOutput("employee", isEmployee);
