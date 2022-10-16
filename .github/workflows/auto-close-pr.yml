@@ -6,6 +6,7 @@ on:
 
 jobs:
   check_pr:
+    name: Check PR
     runs-on: ubuntu-latest
 
     steps:
