@@ -15,11 +15,11 @@ jobs:
 
       - name: Check if employee
         id: check_employee
-        uses: super-duper-computing-machine/probable-octo-robot
+        uses: super-duper-computing-machine/probable-octo-robot@main
 
       - name: Close PR
         id: close_pr
-        uses: super-duper-computing-machine/laughing-umbrella
+        uses: super-duper-computing-machine/laughing-umbrella@main
         if: ${{ steps.check_employee.outputs.employee == 'false' }}
       
       - name: Leave PR open
