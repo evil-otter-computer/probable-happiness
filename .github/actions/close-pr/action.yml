@@ -1,8 +1,0 @@
-name: 'Close PR'
-description: 'Closes a pull request'
-inputs:
-  token:
-    description: 'The token used to interact with GitHub'
-runs:
-  using: 'node16'
-  main: 'index.js'
