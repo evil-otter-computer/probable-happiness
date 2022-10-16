@@ -13,11 +13,15 @@ jobs:
       - name: Check if employee
         id: check_employee
         uses: super-duper-computing-machine/probable-octo-robot@main
+        with:
+          token: ${{ secrets.READ_GITHUB_ORG_MEMBERS_TOKEN }}
 
       - name: Close PR
         id: close_pr
         uses: super-duper-computing-machine/laughing-umbrella@main
         if: ${{ steps.check_employee.outputs.employee == 'false' }}
+        with:
+          token: ${{ secrets.READ_GITHUB_ORG_MEMBERS_TOKEN }}
       
       - name: Leave PR open
         id: leave_pr
