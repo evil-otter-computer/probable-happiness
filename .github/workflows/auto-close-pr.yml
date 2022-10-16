@@ -10,9 +10,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v3
-
       - name: Check if employee
         id: check_employee
         uses: super-duper-computing-machine/probable-octo-robot@main
